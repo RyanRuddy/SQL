@@ -1,0 +1,226 @@
+Table country_ref_tbl{
+  id SERIAL [pk, increment]
+  Country_Name varchar(50)
+  Country_Code varchar(5)
+}
+
+Table army {
+  id SERIAL [pk, increment]
+  active_duty INTEGER
+  paramilitary INTEGER
+  reserves INTEGER
+  total INTEGER
+  pop2022 INTEGER
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table atomic_weapons {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Military_Stockpile INTEGER
+  Retired_Weapons INTEGER
+  Total_Inventory INTEGER
+  Total_Nuclear_tests INTEGER
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table billionaires {
+id SERIAL [pk, increment]
+rank INTEGER 
+name VARCHAR(50)
+net_worth INTEGER
+age INTEGER
+country VARCHAR(50)
+source VARCHAR(50)
+industry VARCHAR(50)
+Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table broadband_penetration {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  broadband_subscriptions_per_100 FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table c02_emissions {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  c02_emissions INTEGER
+  pop2022 INTEGER 
+  Area INTEGER
+  World_Proportion FLOAT
+  Density VARCHAR(25)
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table cancer_deaths{
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year  INTEGER
+  Total_Liver_Cancer_Deaths INTEGER
+  Total_Kidney_Cancer_Deaths INTEGER
+  Total_Oral_Cancer_Deaths INTEGER
+  Total_Trachial_Bronchus_Lung_Cancer_Deaths INTEGER
+  Total_Larynx_Cancer_Deaths INTEGER
+  Total_GallBladder_Cancer_Deaths INTEGER
+  Total_Melanoma_Deaths INTEGER
+  Total_Leukemia_Deaths INTEGER
+  Total_Hodgkins_Lymphoma_Deaths INTEGER
+  Total_Myeloma_Deaths INTEGER
+  Total_Neoplasm_Other_Deaths INTEGER
+  Total_Breast_Cancer_Deaths INTEGER
+  Total_Prostate_Cancer_Deaths INTEGER
+  Total_Thyroid_Cancer_Deaths INTEGER
+  Total_Stomach_Cancer_Deaths INTEGER
+  Total_Bladder_Cancer_Deaths INTEGER
+  Total_Urine_Cancer_Deaths INTEGER
+  Total_Ovarian_Cancer_Deaths INTEGER
+  Total_Cervical_Cancer_Deaths INTEGER
+  Total_Brain_Nervous_System_Cancer_Deaths INTEGER
+  Total_NonHodgkins_Lymphoma_Deaths INTEGER
+  Total_Pancreatic_Cancer_Deaths INTEGER
+  Total_Esophogeal_Cancer_Deaths INTEGER
+  Total_Testicular_Cancer_Deaths INTEGER
+  Total_Nasopharynx_Cancer_Deaths INTEGER
+  Total_Colon_Cancer_Deaths INTEGER
+  Total_Non_Melanoma_Skin_Cancer_Deaths INTEGER
+  Total_Mesotheleoma_Cancer_Deaths INTEGER
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table country_data {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Density INTEGER
+  Agricultural_Land FLOAT
+  Land_Area INTEGER
+  Armed_Forces_Size INTEGER
+  Birth_rate FLOAT
+  CPI FLOAT
+  CPI_Change FLOAT
+  Fertility_Rate FLOAT
+  Forested_Area FLOAT
+  Gasoline_Price FLOAT
+  GDP FLOAT
+  Gross_Primary_Education_Enrollment FLOAT
+  Gross_tertiary_education_enrollment FLOAT
+  Infant_mortality FLOAT
+  Life_expectancy FLOAT
+  Maternal_mortality_ratio INTEGER
+  Minimum_wage FLOAT
+  Out_of_pocket_health_enpenditure FLOAT
+  Physicians_per_thousand FLOAT
+  Population INTEGER
+  Population_Labor_force_participation FLOAT
+  Tax_revenue FLOAT
+  Total_tax_rate FLOAT
+  Unemployment_rate FLOAT
+  Urban_population FLOAT
+  Latitude FLOAT 
+  Longitude FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table crime_index {
+  id SERIAL [pk, increment]
+  Rank INTEGER
+  City VARCHAR(35)
+  Location VARCHAR(25)
+  Crime_Index FLOAT
+  Safety_Index FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table edu_exp {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  Government_expenditure_on_education FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table internet_usage {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  Number_of_internet_users INTEGER
+  Country_id INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table life_expectancy {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  Status VARCHAR(50)
+  Population INTEGER
+  Hepatitis_B INTEGER
+  Measles INTEGER
+  polio INTEGER
+  Diptheria INTEGER
+  HIV_AIDS FLOAT
+  Infant_deaths INTEGER
+  under_five_deaths INTEGER
+  Total_expenditure FLOAT
+  GDP FLOAT
+  BMI FLOAT
+  thinness_1_19_years FLOAT
+  Alcohol FLOAT
+  Schooling FLOAT
+  Life_expectancy FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table military_paramilitary_membership {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Active_military INTEGER
+  Reserve_military INTEGER
+  Paramilitary INTEGER
+  Total INTEGER
+  Per_capita_total FLOAT
+  Per_capita_active FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table mobile {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  Mobile_cellular_subscriptions_per_100 FLOAT
+  Country_id INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table netflix {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Total_Library_Size INTEGER
+  No_of_TV_Shows INTEGER
+  No_of_Movies INTEGER
+  Cost_Per_Month_Basic FLOAT
+  Cost_Per_Month_Standard FLOAT
+  Cost_Per_Month_Premium FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table proportion_individual_internet_users_population {
+  id SERIAL [pk, increment]
+  Country VARCHAR(50)
+  Year INTEGER
+  individuals_using_the_internet FLOAT
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
+
+Table unicorns {
+  id SERIAL [pk, increment]
+  Company_name VARCHAR(50)
+  Valuation_in_billions FLOAT
+  Date_Joined date 
+  Country_of_origin VARCHAR(25)
+  City VARCHAR(20)
+  Industry VARCHAR(40)
+  Investors VARCHAR(100)
+  Country_ID INTEGER [ref: > country_ref_tbl.id]
+}
